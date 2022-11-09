@@ -1,0 +1,6 @@
+# Byte-compiled 
+__pycache__/
+*.py[cod]
+
+# MAC file
+.DS_Store
