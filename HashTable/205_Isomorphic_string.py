@@ -5,22 +5,25 @@ class Solution:
         # Space Complexity : O(2n)
         ht_s = {}
         ht_t = {}
-        for i in range(len(s)):
+        for _s, _t in zip(s,t):
             # if hash table get is none
-            if ht_s.get(s[i], None) == None:
+            if ht_s.get(_s, None) == None:
+                if _t in ht_s.values():
+                    return False
                 ht_s.update({
-                    s[i]: t[i]
+                    _s: _t
                 })
             else: # check conflict
-                if ht_s.get(s[i]) != t[i]:
+                if ht_s.get(_s) != _t:
                     return False
+                
 
-            if ht_t.get(t[i], None) == None:
-                ht_t.update({
-                    t[i]: s[i]
-                })
-            else:
-                if ht_t.get(t[i]) != s[i]:
-                    return False
+            # if ht_t.get(t[i], None) == None:
+            #     ht_t.update({
+            #         t[i]: s[i]
+            #     })
+            # else:
+            #     if ht_t.get(t[i]) != s[i]:
+            #         return False
 
         return True
